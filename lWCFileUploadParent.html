@@ -1,0 +1,44 @@
+<template>
+    <lightning-card title="Uploader In LWC">
+        <div style="margin-left:4%">
+            <div>
+                <lightning-file-upload
+                label="Attach receipt"
+                name="fileUploader"
+                accept={acceptedFormats}
+                record-id={recordId}
+                onuploadfinished={handleUploadFinished}
+                multiple>
+        </lightning-file-upload>
+        </div>
+        <div style="margin-right:4%"></div>
+        <lightning-input type="checkbox" label="Link Contacts" name="ChildRecs" checked={checkBoxValue} onchange={handleChange}></lightning-input>
+            </div>
+            
+            <div class="slds-text-body_small slds-text-color_error">
+                <template if:true={showLoadingSpinner}>
+                    <lightning-spinner alternative-text="Uploading......" size="medium"></lightning-spinner>
+                </template>
+            </div><br />
+
+          <c-l-w-c-file-upload-child recordid={recordId}></c-l-w-c-file-upload-child>
+
+                  <!--- <lightning-button class="slds-m-top--medium" 
+                              label="Upload Files" 
+                              onclick={handleSaveFiles} 
+                              variant="brand">
+            </lightning-button> -->
+        <!--<template if:true={data}>
+            <lightning-card title="Uploaded Files" icon-name="standard:account">
+                <div style="width: auto;">
+                    <lightning-datatable data={accountList} 
+                                         columns={columns} 
+                                         key-field="id"
+                                         onrowselection={getSelectedRec}
+                                         onrowaction={handleRowAction}>
+                    </lightning-datatable>
+                </div>
+            </lightning-card>
+        </template> -->
+    </lightning-card>
+</template>
